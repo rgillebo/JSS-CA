@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Meme Details</title>
+  <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+  <link href="../../stylesheets/navbar.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../stylesheets/memeDetails.css">
+</head>
+
+<body class="position-relative" data-bs-spy="scroll">
+  <!-- Include Navbar Partial -->
+  <%- include('./partials/navbar.ejs') %>
+
+  <section class="container">
+    <h1>Meme Details</h1>
+
+    <% if (meme) { %>
+      <!-- Display Meme Details -->
+      <img src="<%= meme.url %>" alt="<%= meme.name %>">
+      <p>ID: <%= meme.id %></p>
+      <p>Name: <%= meme.name %></p>
+      <p>URL: <%= meme.url %></p>
+      <p>Dimensions: <%= meme.width %> x <%= meme.height %></p>
+    <% } else { %>
+      <!-- Meme details not found -->
+      <p>Meme details not found</p>
+    <% } %>
+
+    <!-- Back to Meme Overview Link -->
+    <a href="/memes/overview">Back to Meme Overview</a>
+  </section>
+
+  <!-- Include Scripts Partial -->
+  <%- include('./partials/scripts.ejs') %>
+</body>
+
+</html>

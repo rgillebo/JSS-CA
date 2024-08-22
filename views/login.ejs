@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+  <link href="../../stylesheets/navbar.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../stylesheets/login.css">
+</head>
+
+<body>
+  <!-- Include Navbar Partial -->
+  <%- include('./partials/navbar.ejs') %>
+
+  <section class="container">
+    <h1>Login</h1>
+
+    <% if (error && error.length > 0) { %>
+      <!-- Display error message in red if there is an error -->
+      <p style="color: red;"><%= error[0] %></p>
+    <% } %>
+
+    <!-- Login Form -->
+    <form action="/login" method="POST" class="mb-3">
+      <label for="username" class="form-label">Username:</label>
+      <input type="text" id="username" name="username" class="form-control" required>
+    
+      <label for="password" class="form-label">Password:</label>
+      <input type="password" id="password" name="password" class="form-control" required>
+    
+      <button type="submit" class="btn btn-primary login-btn">Login</button>
+    </form>
+
+  <!-- Include Scripts Partial -->
+  <%- include('./partials/scripts.ejs') %>
+</body>
+
+</html>

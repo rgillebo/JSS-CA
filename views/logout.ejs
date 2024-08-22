@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Logout</title>
+  <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+  <link href="../../stylesheets/navbar.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../stylesheets/logout.css">
+</head>
+
+<body>
+  <!-- Include Navbar Partial -->
+  <%- include('./partials/navbar.ejs') %>
+
+  <section class="container">
+    <h1>Logout</h1>
+    <p>You have been logged out successfully.</p>
+    <p><a href="/memes/overview">Go back to Memes Overview</a></p>
+  </section>
+
+  <!-- Include Scripts Partial -->
+  <%- include('./partials/scripts.ejs') %>
+</body>
+
+</html>

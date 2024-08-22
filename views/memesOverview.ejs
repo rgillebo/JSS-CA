@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meme Overview</title>
+  <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+  <link href="../../stylesheets/navbar.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../stylesheets/memeOverview.css">
+</head>
+
+<body class="position-relative" data-bs-spy="scroll">
+  <!-- Include Navbar Partial -->
+  <%- include('./partials/navbar.ejs') %>
+
+  <section class="container">
+    <h1>Meme Overview</h1>
+
+    <!-- Search Input and Buttons -->
+    <div class="mb-3">
+      <label for="search-input" class="form-label">Search:</label>
+      <input type="text" class="form-control" id="search-input">
+    </div>
+    <button class="btn btn-primary" id="search-button">Search</button>
+    <button class="btn btn-secondary" id="clear-search-button">Clear Search</button>
+
+    <!-- Meme Table -->
+    <table class="table table-bordered" id="memesTable">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Image</th>
+          <th scope="col">Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% memes.forEach(meme => { %>
+          <tr id="<%= meme.id %>" class="<%= meme.viewed ? 'viewed-meme' : '' %>">
+            <td><%= meme.name %></td>
+            <td><img src="<%= meme.url %>" alt="<%= meme.name %>" style="width: 20%;" /></td>
+            <td>
+              <% if (loggedIn) { %>
+                <!-- 'Details' button with data attribute for logged-in users -->
+                <button class="details-btn" data-meme-id="<%= meme.id %>">Details</button>
+              <% } else { %>
+                <!-- Placeholder for non-logged-in users -->
+                <span>Login to view details</span>
+              <% } %>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Include Scripts Partial -->
+  <%- include('./partials/scripts.ejs') %>
+</body>
+
+</html>

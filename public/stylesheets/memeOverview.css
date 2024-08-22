@@ -1,0 +1,25 @@
+.thumbnail-img {
+    max-width: 20%;
+  }
+  
+.viewed-meme {
+  background-color: #b4b4b4; 
+}
+
+#search-button, #clear-search-button {
+  margin-bottom: 15px;
+}
+
+.details-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.details-btn:hover {
+  background-color: #0056b3;
+}

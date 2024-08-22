@@ -1,0 +1,56 @@
+<!-- Navigation Bar with Central Logo -->
+<nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light position-fixed w-100 fixed-top">
+    <div class="container-fluid">
+        <!-- Central Logo -->
+        <a class="navbar-brand" href="/memes/overview">
+            <img src="/images/company_logo.png" alt="Central Logo" height="30" />
+        </a>
+
+        <!-- Navbar Toggler Button for Mobile -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Links Container -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <!-- Home Link -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+
+                <!-- Memes Link -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/memes/overview">Memes</a>
+                </li>
+
+                <!-- Conditional Login/Logout Link -->
+                <% if (!loggedIn) { %>
+                    <!-- Login Link -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Sign in</a>
+                    </li>
+                <% } else { %>
+                    <!-- Logout Link -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                <% } %>
+
+                <!-- Welcome Message -->
+                <% if (loggedIn) { %>
+                    <!-- Display username for logged-in users -->
+                    <li class="nav-item">
+                        <span class="nav-link">Welcome, <%= username %></span>
+                    </li>
+                <% } else { %>
+                    <!-- Display generic welcome message for guest users -->
+                    <li class="nav-item">
+                        <span class="nav-link">Welcome, Guest</span>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</nav>
